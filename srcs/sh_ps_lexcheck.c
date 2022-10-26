@@ -6,7 +6,7 @@
 /*   By: yoyohann <yoyohann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 16:44:25 by yoyohann          #+#    #+#             */
-/*   Updated: 2022/10/25 18:35:43 by yoyohann         ###   ########.fr       */
+/*   Updated: 2022/10/26 16:58:23 by yoyohann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void sh_ps_lexcheck(char *str)
             printf("[%c] is special character\n", str[i]);
         else if (sh_ps_isdelimeter(str[i]))
             printf("[%c] is delimeter\n", str[i]);
-        else if (sh_ps_isquate(str[i]))
+        else if (sh_ps_issinglequote(str[i]) || sh_ps_isdoublequote(str[i]))
             printf("[%c] is quate\n", str[i]);
         else
             printf("[%c] is invalid character\n", str[i]);
