@@ -51,7 +51,6 @@ int sh_ps_issinglequoted(char *str, int i)
                 r++;
         }
     }
-//    printf("%d and %d\n", l, r);
     if (l % 2 == 1 && r % 2 == 1)
         return (1);
     return (0);
