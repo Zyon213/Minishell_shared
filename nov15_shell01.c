@@ -138,7 +138,7 @@ void readline(shell)
 
 char *create_prompt()
 {
-    char *prompt
+    char *promp
         // char *buf[] use geekstip to
         //  use getcwd funcition
         //  return current direictory
