@@ -138,6 +138,7 @@ void readline(shell)
     // create a variable in mini readline
     // create prompt char *prompt
     create_prompt() return the current direcotory
+        signal(1)
     // run signal function to accept signals
     // read the line
     // assign read line to mini->readline
@@ -158,76 +159,8 @@ char *create_prompt(){
     // joint with sign
     return prompt}
 
-    /*
-    void	run_signals(int sig)
-    {
-        if (sig == 1)
-        {
-            signal(SIGINT, restore_prompt);
-            signal(SIGQUIT, SIG_IGN);
-        }
-        if (sig == 2)
-        {
-            signal(SIGINT, ctrl_c);
-            signal(SIGQUIT, back_slash);
-        }
-        if (sig == 3)
-        {
-            printf("exit\n");
-            exit(0);
-        }
-    }
-
-    void	restore_prompt(int sig)
-    {
-        g_ret_number = 130;
-        write(1, "\n", 1);
-        rl_replace_line("", 0);
-        rl_on_new_line();
-        rl_redisplay();
-        (void)sig;
-    }
-
-    void	ctrl_c(int sig)
-    {
-        g_ret_number = 130;
-        write(1, "\n", 1);
-        (void)sig;
-    }
-
-    void	back_slash(int sig)
-    {
-        g_ret_number = 131;
-        printf("Quit (core dumped)\n");
-        (void)sig;
-    }
-     */
     make
     - lft - lreadline
-
-    //    int	g_status;
-
-    // inside main or signal function
-    /*
-            signal(SIGINT, handle_sigint);
-            signal(SIGQUIT, SIG_IGN);
-    */
-
-    /* void	handle_sigint(int sig)
-    {
-        if (sig == SIGINT)
-        {
-            g_status = 130;
-            ioctl(STDIN_FILENO, TIOCSTI, "\n");
-            rl_replace_line("", 0);
-            rl_on_new_line();
-        }
-    }
-     */
-
-    // check for exit status codes
-
-    // at initialize path use ft_strjoin to add "/" at the end
 
     /* void	run_commands(t_struct *mini)
     {
@@ -352,3 +285,64 @@ char *create_prompt(){
 
     // first try to execute the commnad with out error check
     // use pipe and redirect in and out
+
+    /* void	run_signals(int sig)
+    {
+        if (sig == 1)
+        {
+            signal(SIGINT, restore_prompt);
+            signal(SIGQUIT, SIG_IGN);
+        }
+        if (sig == 2)
+        {
+            signal(SIGINT, ctrl_c);
+            signal(SIGQUIT, back_slash);
+        }
+        if (sig == 3)
+        {
+            printf("exit\n");
+            exit(0);
+        }
+    }
+
+    void	restore_prompt(int sig)
+    {
+        g_ret_number = 130;
+        write(1, "\n", 1);
+        rl_replace_line("", 0);
+        rl_on_new_line();
+        rl_redisplay();
+        (void)sig;
+    }
+
+    void	ctrl_c(int sig)
+    {
+        g_ret_number = 130;
+        write(1, "\n", 1);
+        (void)sig;
+    }
+
+    void	back_slash(int sig)
+    {
+        g_ret_number = 131;
+        printf("Quit (core dumped)\n");
+        (void)sig;
+    } */
+
+    // Exit code 127 means job's command can not be found or executed
+    /*
+    1: general errors
+
+    2: misuse of shell builtins (pretty rare)
+
+    126: cannot invoke requested command
+
+    127: command not found error
+
+    128: invalid argument to “exit”
+
+    128+n: fatal error signal “n” (for example, kill -9 = 137).
+
+    130: script terminated by Ctrl-C */
+
+    https: // www.thegeekstuff.com/2010/10/linux-error-codes/

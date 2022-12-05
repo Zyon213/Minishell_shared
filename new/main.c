@@ -67,8 +67,8 @@ void sh_ex_freeall(char **str)
         str[i] = NULL;
         i++;
     }
-} */
-
+}
+*/
 // view the all the environment variables
 
 void sh_ex_viewenvp(t_shell_s *shell)
@@ -186,7 +186,7 @@ void sh_ex_readline(t_shell_s *shell)
     prompt_line = sh_ex_createprompt();
 
     // create a function for handling a signal
-    sh_ex_sighandle(1);
+    //    sh_ex_sighandle(1);
     shell->command = NULL;
     if (shell->command)
     {
@@ -303,7 +303,7 @@ int main(int argc, char **argv, char **envp)
         shell.infile = STDIN_FILENO;
         shell.outfile = STDOUT_FILENO;
         sh_ex_readline(&shell);
-        printf("%s %s\n", WHITE, shell.command);
+        //    printf("%s %s\n", WHITE, shell.command);
         //    sleep(1);
         //    break;
     }

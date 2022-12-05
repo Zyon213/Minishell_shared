@@ -39,6 +39,7 @@ void sh_ex_wcmessage();
 int sh_ex_doublelen(char **str);
 void sh_ex_freeall(char **str);
 void sh_ex_memkeyval(t_shell_s *shell);
+
 void sh_ex_createenvp(t_shell_s *shell, char **envp);
 void sh_ex_viewenvp(t_shell_s *shell);
 char *sh_ex_searchenvvar(t_shell_s *shell, char *key);
